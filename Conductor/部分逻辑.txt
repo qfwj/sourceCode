@@ -1,0 +1,4 @@
+1.重试逻辑
+会将workflow中failed的task重新加入到队列中 然后将所有的cancle掉的task状态置为SCHEDULED；然后重新调用流程
+
+主要针对failed和cancel的task进行重试调用，对于timeout的不支持调用的，猜测因为对已超时的根据retrycount进行了多次调用了，仍然超时就没必要在进行调用了
